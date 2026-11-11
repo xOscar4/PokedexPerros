@@ -3,18 +3,25 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { avistamientosRepository } from '@/data/repositories/avistamientos-repository';
 import { perrosRepository } from '@/data/repositories/perros-repository';
 import { escucharCaidas } from '@/data/services/acelerometro-service';
+import { validarNitidezFoto } from '@/data/services/nitidez-foto-service';
 import { obtenerUbicacionActual } from '@/data/services/ubicacion-service';
 import type { Perro } from '@/domain/models/perro';
  
-export type PasoCaptura = 'listo' | 'fotografiando' | 'ubicando' | 'guardando';
+export type PasoCaptura =
+  | 'listo'
+  | 'fotografiando'
+  | 'validando'
+  | 'ubicando'
+  | 'guardando';
  
 type Parametros = {
   apodo: string;
+  entrenadorId: string;
   // Solo escuchamos el acelerómetro mientras la pantalla está a la vista.
   activo: boolean;
 };
  
-export function useCapturaViewModel({ apodo, activo }: Parametros) {
+export function useCapturaViewModel({ apodo, entrenadorId, activo }: Parametros) {
   const [perros, setPerros] = useState<Perro[]>([]);
   const [perroId, setPerroId] = useState<string | null>(null);
   const [paso, setPaso] = useState<PasoCaptura>('listo');
@@ -60,13 +67,17 @@ export function useCapturaViewModel({ apodo, activo }: Parametros) {
         if (!fotoUri) throw new Error('La cámara no devolvió ninguna foto');
         if (controlador.signal.aborted) return false;
  
+        setPaso('validando');
+        await validarNitidezFoto(fotoUri);
+        if (controlador.signal.aborted) return false;
+
         setPaso('ubicando');
         const { latitud, longitud } = await obtenerUbicacionActual();
         if (controlador.signal.aborted) return false;
  
         setPaso('guardando');
         await avistamientosRepository.registrarCaptura(
-          { perroId, apodo, fotoUri, latitud, longitud },
+          { perroId, entrenadorId, apodo, fotoUri, latitud, longitud },
           controlador.signal,
         );
         return true;
@@ -81,7 +92,7 @@ export function useCapturaViewModel({ apodo, activo }: Parametros) {
         setPaso('listo');
       }
     },
-    [perroId, apodo],
+    [perroId, entrenadorId, apodo],
   );
  
   return {

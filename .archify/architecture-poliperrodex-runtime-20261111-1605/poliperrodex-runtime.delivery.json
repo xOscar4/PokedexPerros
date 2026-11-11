@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "ee918f91-04d7-4d2c-aade-91136703d631",
+  "status": "current",
+  "command": "deliver",
+  "type": "architecture",
+  "input": "C:\\Users\\APP MOVILES\\Documents\\react-native\\Poliperrodex\\.archify\\architecture-poliperrodex-runtime-20261111-1605\\candidate.json",
+  "output": "C:\\Users\\APP MOVILES\\Documents\\react-native\\Poliperrodex\\.archify\\architecture-poliperrodex-runtime-20261111-1605\\poliperrodex-runtime.html",
+  "specification": {
+    "sha256": "4c8b982e5346f109f225a1a34c0a2483d4050a33470172227af13550adfab61c",
+    "bytes": 7108
+  },
+  "artifact": {
+    "sha256": "40f73056c78fc4d8ca42a90e6f2e2fb649c8ddd59b0ee85eb0c470fac9910673",
+    "bytes": 862701
+  }
+}

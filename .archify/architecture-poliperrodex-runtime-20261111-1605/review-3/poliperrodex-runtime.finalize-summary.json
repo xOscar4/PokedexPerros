@@ -1,0 +1,201 @@
+{
+  "schemaVersion": 1,
+  "ok": true,
+  "command": "finalize",
+  "status": "pass",
+  "type": "architecture",
+  "quality": "showcase",
+  "specification": {
+    "path": "C:\\Users\\APP MOVILES\\Documents\\react-native\\Poliperrodex\\.archify\\architecture-poliperrodex-runtime-20261111-1605\\candidate.json",
+    "sha256": "4c8b982e5346f109f225a1a34c0a2483d4050a33470172227af13550adfab61c",
+    "bytes": 7108
+  },
+  "artifact": {
+    "path": "C:\\Users\\APP MOVILES\\Documents\\react-native\\Poliperrodex\\.archify\\architecture-poliperrodex-runtime-20261111-1605\\poliperrodex-runtime.html",
+    "sha256": "40f73056c78fc4d8ca42a90e6f2e2fb649c8ddd59b0ee85eb0c470fac9910673",
+    "bytes": 862701
+  },
+  "gates": {
+    "validate": "pass",
+    "deliver": "pass",
+    "check": "pass",
+    "browser-check": "pass"
+  },
+  "diagnostics": [],
+  "diagnosticSummary": {
+    "total": 0,
+    "shown": 0,
+    "truncated": false
+  },
+  "evidence": {
+    "receipt": "C:\\Users\\APP MOVILES\\Documents\\react-native\\Poliperrodex\\.archify\\architecture-poliperrodex-runtime-20261111-1605\\review-3\\poliperrodex-runtime.finalize.json",
+    "summaryReceipt": "C:\\Users\\APP MOVILES\\Documents\\react-native\\Poliperrodex\\.archify\\architecture-poliperrodex-runtime-20261111-1605\\review-3\\poliperrodex-runtime.finalize-summary.json",
+    "browserCheckReceipt": "C:\\Users\\APP MOVILES\\Documents\\react-native\\Poliperrodex\\.archify\\architecture-poliperrodex-runtime-20261111-1605\\review-3\\poliperrodex-runtime.browser-check.json"
+  },
+  "update": {
+    "status": "current",
+    "installedVersion": "3.2.0",
+    "availableVersion": "3.2.0",
+    "releaseNotes": null,
+    "checkedAt": "2026-11-11T21:11:24.194Z",
+    "source": "cache",
+    "noticeRequired": false,
+    "noticeText": null
+  },
+  "visualReview": "not-requested",
+  "durationMs": 7412,
+  "browserCheck": {
+    "requested": true,
+    "ran": true
+  },
+  "visualReviewRecommendation": {
+    "action": "inspect-route-readability",
+    "signals": {
+      "resolvedCrossovers": 4,
+      "routesOverSuggestedBends": 3
+    },
+    "reason": "Automated gates passed, but crossings or detours still need perceptual review before claiming visual quality.",
+    "affectedRoutes": {
+      "crossings": [
+        {
+          "left": {
+            "id": "tabs-map",
+            "from": "tabs",
+            "to": "map",
+            "label": "mapa",
+            "collectionIndex": 5,
+            "artifactIndex": 6
+          },
+          "right": {
+            "id": "profile-data",
+            "from": "profile",
+            "to": "repositories",
+            "label": "datos por ID",
+            "collectionIndex": 9,
+            "artifactIndex": 10
+          },
+          "point": [
+            501,
+            541
+          ]
+        },
+        {
+          "left": {
+            "id": "map-data",
+            "from": "map",
+            "to": "repositories",
+            "label": "avistamientos",
+            "collectionIndex": 8,
+            "artifactIndex": 9
+          },
+          "right": {
+            "id": "profile-data",
+            "from": "profile",
+            "to": "repositories",
+            "label": "datos por ID",
+            "collectionIndex": 9,
+            "artifactIndex": 10
+          },
+          "point": [
+            801,
+            464
+          ],
+          "sharedNode": "repositories"
+        },
+        {
+          "left": {
+            "id": "map-data",
+            "from": "map",
+            "to": "repositories",
+            "label": "avistamientos",
+            "collectionIndex": 8,
+            "artifactIndex": 9
+          },
+          "right": {
+            "id": "capture-device",
+            "from": "capture",
+            "to": "device-apis",
+            "label": "c?mara / GPS / sensor",
+            "collectionIndex": 13,
+            "artifactIndex": 14
+          },
+          "point": [
+            731,
+            558
+          ]
+        },
+        {
+          "left": {
+            "id": "profile-data",
+            "from": "profile",
+            "to": "repositories",
+            "label": "datos por ID",
+            "collectionIndex": 9,
+            "artifactIndex": 10
+          },
+          "right": {
+            "id": "capture-device",
+            "from": "capture",
+            "to": "device-apis",
+            "label": "c?mara / GPS / sensor",
+            "collectionIndex": 13,
+            "artifactIndex": 14
+          },
+          "point": [
+            731,
+            464
+          ]
+        }
+      ],
+      "detours": [
+        {
+          "relationship": {
+            "id": "tabs-capture",
+            "from": "tabs",
+            "to": "capture",
+            "label": "capturar",
+            "collectionIndex": 4,
+            "artifactIndex": 5
+          },
+          "bends": 3,
+          "stretch": 1.325
+        },
+        {
+          "relationship": {
+            "id": "profile-data",
+            "from": "profile",
+            "to": "repositories",
+            "label": "datos por ID",
+            "collectionIndex": 9,
+            "artifactIndex": 10
+          },
+          "bends": 3,
+          "stretch": 1.082
+        },
+        {
+          "relationship": {
+            "id": "map-tiles",
+            "from": "map",
+            "to": "map-provider",
+            "label": "CDN + teselas OSM",
+            "collectionIndex": 14,
+            "artifactIndex": 15
+          },
+          "bends": 3,
+          "stretch": 1.124
+        }
+      ],
+      "truncated": false
+    },
+    "hints": [
+      "tabs → map crosses profile → repositories: move the node of whichever is a branch, return, or second entrance to the other side of the main path, so that relationship runs through an empty corridor.",
+      "map → repositories and profile → repositories cross next to repositories: move node map or profile so the two reach repositories from different sides (for example one level with it, one directly above or below it).",
+      "map → repositories crosses capture → device-apis: move the node of whichever is a branch, return, or second entrance to the other side of the main path, so that relationship runs through an empty corridor.",
+      "profile → repositories crosses capture → device-apis: move the node of whichever is a branch, return, or second entrance to the other side of the main path, so that relationship runs through an empty corridor.",
+      "tabs → capture needs 3 bends: move node tabs or capture so they share a row or column with matching centers, or sit diagonally with a clear corner.",
+      "profile → repositories needs 3 bends: move node profile or repositories so they share a row or column with matching centers, or sit diagonally with a clear corner.",
+      "map → map-provider needs 3 bends: move node map or map-provider so they share a row or column with matching centers, or sit diagonally with a clear corner."
+    ],
+    "repair": "Trace these relationships at the desktop viewport. For Architecture, use references/architecture-layout-repair.md: reflow a blocked main path or tangled connected scene, and repair an isolated defect locally only when the surrounding composition is accepted. Preserve all semantic content and user-fixed geometry. Rerun finalize once after the edit."
+  }
+}

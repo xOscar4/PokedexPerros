@@ -1,107 +1,36 @@
 {
   "schemaVersion": 1,
-  "ok": false,
+  "ok": true,
   "command": "finalize",
-  "status": "fail",
+  "status": "pass",
   "type": "architecture",
   "quality": "showcase",
   "specification": {
     "path": "C:\\Users\\APP MOVILES\\Documents\\react-native\\Poliperrodex\\.archify\\architecture-poliperrodex-runtime-20261111-1605\\candidate.json",
-    "sha256": "6f09482b98940dd1ba4ea33afa8ce8e3efa29b91a0ea6243c099cb22a9074fec",
-    "bytes": 8056
+    "sha256": "4c8b982e5346f109f225a1a34c0a2483d4050a33470172227af13550adfab61c",
+    "bytes": 7108
   },
   "artifact": {
-    "path": "C:\\Users\\APP MOVILES\\Documents\\react-native\\Poliperrodex\\.archify\\architecture-poliperrodex-runtime-20261111-1605\\poliperrodex-runtime.html"
+    "path": "C:\\Users\\APP MOVILES\\Documents\\react-native\\Poliperrodex\\.archify\\architecture-poliperrodex-runtime-20261111-1605\\poliperrodex-runtime.html",
+    "sha256": "40f73056c78fc4d8ca42a90e6f2e2fb649c8ddd59b0ee85eb0c470fac9910673",
+    "bytes": 862701
   },
   "gates": {
-    "validate": "fail",
-    "deliver": "not-run",
-    "check": "not-run",
-    "browser-check": "not-run"
+    "validate": "pass",
+    "deliver": "pass",
+    "check": "pass",
+    "browser-check": "pass"
   },
-  "failedStage": "validate",
-  "diagnostics": [
-    {
-      "code": "composition/label-route-clearance",
-      "severity": "error",
-      "message": "[composition/label-route-clearance] showcase architecture label \"capturar\" on connections[4] id \"tabs-capture\" \"tabs\" -> \"capture\" label \"capturar\" is 0px from connections[7] id \"pokedex-profile\" \"pokedex\" -> \"profile\" label \"abre perro por ID\" segment 2 [633.7, 342] -> [633.7, 673] (label rect [588, 375, 48, 14]; minimum 4px) — adjust labelAt, labelDx, labelDy, or labelSegment; otherwise adjust the other relationship route/via/channel.",
-      "subject": {
-        "diagramType": "architecture",
-        "collection": "connections",
-        "index": 4,
-        "id": "tabs-capture",
-        "from": "tabs",
-        "to": "capture"
-      },
-      "evidence": {
-        "label": "capturar",
-        "otherRelationship": {
-          "diagramType": "architecture",
-          "collection": "connections",
-          "index": 7,
-          "id": "pokedex-profile",
-          "from": "pokedex",
-          "to": "profile"
-        },
-        "segmentIndex": 2,
-        "clearancePx": 0,
-        "minimumPx": 4,
-        "labelRect": {
-          "relation": {
-            "id": "tabs-capture",
-            "from": "tabs",
-            "to": "capture",
-            "label": "capturar"
-          },
-          "relationIndex": 4,
-          "label": "capturar",
-          "x": 588.3,
-          "y": 375,
-          "width": 48.4,
-          "height": 14,
-          "lx": 612.5,
-          "ly": 385
-        },
-        "from": [
-          633.6999999999999,
-          342
-        ],
-        "to": [
-          633.6999999999999,
-          673
-        ]
-      },
-      "supportedFixes": [
-        "adjust labelAt, labelDx, labelDy, or labelSegment; otherwise adjust the other relationship route/via/channel"
-      ]
-    },
-    {
-      "code": "architecture/component-label-overflow",
-      "severity": "error",
-      "message": "Label \"Perfil del perro + ViewModel\" (~185px) is wider than component \"profile\" (175px) — shorten the label or widen size.",
-      "subject": {
-        "diagramType": "architecture",
-        "nodeId": "profile"
-      },
-      "evidence": {
-        "text": "Perfil del perro + ViewModel",
-        "estimatedWidthPx": 185,
-        "availableWidthPx": 175
-      },
-      "supportedFixes": [
-        "shorten component \"profile\" label \"Perfil del perro + ViewModel\" while preserving its meaning",
-        "or widen component \"profile\" to at least 177px"
-      ]
-    }
-  ],
+  "diagnostics": [],
   "diagnosticSummary": {
-    "total": 2,
-    "shown": 2,
+    "total": 0,
+    "shown": 0,
     "truncated": false
   },
   "evidence": {
     "receipt": "C:\\Users\\APP MOVILES\\Documents\\react-native\\Poliperrodex\\.archify\\architecture-poliperrodex-runtime-20261111-1605\\poliperrodex-runtime.finalize.json",
-    "summaryReceipt": "C:\\Users\\APP MOVILES\\Documents\\react-native\\Poliperrodex\\.archify\\architecture-poliperrodex-runtime-20261111-1605\\poliperrodex-runtime.finalize-summary.json"
+    "summaryReceipt": "C:\\Users\\APP MOVILES\\Documents\\react-native\\Poliperrodex\\.archify\\architecture-poliperrodex-runtime-20261111-1605\\poliperrodex-runtime.finalize-summary.json",
+    "browserCheckReceipt": "C:\\Users\\APP MOVILES\\Documents\\react-native\\Poliperrodex\\.archify\\architecture-poliperrodex-runtime-20261111-1605\\poliperrodex-runtime.browser-check.json"
   },
   "update": {
     "status": "current",
@@ -114,15 +43,159 @@
     "noticeText": null
   },
   "visualReview": "not-requested",
-  "durationMs": 1425,
+  "durationMs": 8146,
   "browserCheck": {
     "requested": true,
-    "ran": false
+    "ran": true
   },
-  "nextAction": {
-    "action": "edit-in-place",
-    "candidate": "C:\\Users\\APP MOVILES\\Documents\\react-native\\Poliperrodex\\.archify\\architecture-poliperrodex-runtime-20261111-1605\\candidate.json",
-    "constraint": "Preserve unaffected semantics and geometry; apply each diagnostic's supportedFixes, or the fix its message names, and do not replace the whole candidate.",
-    "then": "finalize-once"
+  "visualReviewRecommendation": {
+    "action": "inspect-route-readability",
+    "signals": {
+      "resolvedCrossovers": 4,
+      "routesOverSuggestedBends": 3
+    },
+    "reason": "Automated gates passed, but crossings or detours still need perceptual review before claiming visual quality.",
+    "affectedRoutes": {
+      "crossings": [
+        {
+          "left": {
+            "id": "tabs-map",
+            "from": "tabs",
+            "to": "map",
+            "label": "mapa",
+            "collectionIndex": 5,
+            "artifactIndex": 6
+          },
+          "right": {
+            "id": "profile-data",
+            "from": "profile",
+            "to": "repositories",
+            "label": "datos por ID",
+            "collectionIndex": 9,
+            "artifactIndex": 10
+          },
+          "point": [
+            501,
+            541
+          ]
+        },
+        {
+          "left": {
+            "id": "map-data",
+            "from": "map",
+            "to": "repositories",
+            "label": "avistamientos",
+            "collectionIndex": 8,
+            "artifactIndex": 9
+          },
+          "right": {
+            "id": "profile-data",
+            "from": "profile",
+            "to": "repositories",
+            "label": "datos por ID",
+            "collectionIndex": 9,
+            "artifactIndex": 10
+          },
+          "point": [
+            801,
+            464
+          ],
+          "sharedNode": "repositories"
+        },
+        {
+          "left": {
+            "id": "map-data",
+            "from": "map",
+            "to": "repositories",
+            "label": "avistamientos",
+            "collectionIndex": 8,
+            "artifactIndex": 9
+          },
+          "right": {
+            "id": "capture-device",
+            "from": "capture",
+            "to": "device-apis",
+            "label": "c?mara / GPS / sensor",
+            "collectionIndex": 13,
+            "artifactIndex": 14
+          },
+          "point": [
+            731,
+            558
+          ]
+        },
+        {
+          "left": {
+            "id": "profile-data",
+            "from": "profile",
+            "to": "repositories",
+            "label": "datos por ID",
+            "collectionIndex": 9,
+            "artifactIndex": 10
+          },
+          "right": {
+            "id": "capture-device",
+            "from": "capture",
+            "to": "device-apis",
+            "label": "c?mara / GPS / sensor",
+            "collectionIndex": 13,
+            "artifactIndex": 14
+          },
+          "point": [
+            731,
+            464
+          ]
+        }
+      ],
+      "detours": [
+        {
+          "relationship": {
+            "id": "tabs-capture",
+            "from": "tabs",
+            "to": "capture",
+            "label": "capturar",
+            "collectionIndex": 4,
+            "artifactIndex": 5
+          },
+          "bends": 3,
+          "stretch": 1.325
+        },
+        {
+          "relationship": {
+            "id": "profile-data",
+            "from": "profile",
+            "to": "repositories",
+            "label": "datos por ID",
+            "collectionIndex": 9,
+            "artifactIndex": 10
+          },
+          "bends": 3,
+          "stretch": 1.082
+        },
+        {
+          "relationship": {
+            "id": "map-tiles",
+            "from": "map",
+            "to": "map-provider",
+            "label": "CDN + teselas OSM",
+            "collectionIndex": 14,
+            "artifactIndex": 15
+          },
+          "bends": 3,
+          "stretch": 1.124
+        }
+      ],
+      "truncated": false
+    },
+    "hints": [
+      "tabs → map crosses profile → repositories: move the node of whichever is a branch, return, or second entrance to the other side of the main path, so that relationship runs through an empty corridor.",
+      "map → repositories and profile → repositories cross next to repositories: move node map or profile so the two reach repositories from different sides (for example one level with it, one directly above or below it).",
+      "map → repositories crosses capture → device-apis: move the node of whichever is a branch, return, or second entrance to the other side of the main path, so that relationship runs through an empty corridor.",
+      "profile → repositories crosses capture → device-apis: move the node of whichever is a branch, return, or second entrance to the other side of the main path, so that relationship runs through an empty corridor.",
+      "tabs → capture needs 3 bends: move node tabs or capture so they share a row or column with matching centers, or sit diagonally with a clear corner.",
+      "profile → repositories needs 3 bends: move node profile or repositories so they share a row or column with matching centers, or sit diagonally with a clear corner.",
+      "map → map-provider needs 3 bends: move node map or map-provider so they share a row or column with matching centers, or sit diagonally with a clear corner."
+    ],
+    "repair": "Trace these relationships at the desktop viewport. For Architecture, use references/architecture-layout-repair.md: reflow a blocked main path or tangled connected scene, and repair an isolated defect locally only when the surrounding composition is accepted. Preserve all semantic content and user-fixed geometry. Rerun finalize once after the edit."
   }
 }

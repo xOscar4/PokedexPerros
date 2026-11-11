@@ -1,8 +1,0 @@
-{
-  "schemaVersion": 1,
-  "command": "deliver",
-  "status": "pending",
-  "receiptId": "e806d119-20e0-468c-9d6d-323b689705ef",
-  "input": "C:\\Users\\APP MOVILES\\Documents\\react-native\\Poliperrodex\\.archify\\architecture-poliperrodex-runtime-20261111-1605\\candidate.json",
-  "output": "C:\\Users\\APP MOVILES\\Documents\\react-native\\Poliperrodex\\.archify\\architecture-poliperrodex-runtime-20261111-1605\\poliperrodex-runtime.html"
-}

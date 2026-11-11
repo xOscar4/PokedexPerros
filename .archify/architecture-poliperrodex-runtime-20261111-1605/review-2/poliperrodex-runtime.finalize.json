@@ -1,0 +1,161 @@
+{
+  "schemaVersion": 1,
+  "ok": false,
+  "command": "finalize",
+  "status": "fail",
+  "type": "architecture",
+  "quality": "showcase",
+  "startedAt": "2026-11-11T21:19:44.494Z",
+  "specification": {
+    "path": "C:\\Users\\APP MOVILES\\Documents\\react-native\\Poliperrodex\\.archify\\architecture-poliperrodex-runtime-20261111-1605\\candidate.json",
+    "sha256": "235a063ef232ac2365ac0b25dd59de67af8e25396dcc821aa1dd1f603a525d43",
+    "bytes": 7108
+  },
+  "artifact": {
+    "path": "C:\\Users\\APP MOVILES\\Documents\\react-native\\Poliperrodex\\.archify\\architecture-poliperrodex-runtime-20261111-1605\\poliperrodex-runtime.html",
+    "sha256": "40f73056c78fc4d8ca42a90e6f2e2fb649c8ddd59b0ee85eb0c470fac9910673",
+    "bytes": 862701
+  },
+  "stages": {
+    "validate": {
+      "status": "fail",
+      "exitCode": 1,
+      "durationMs": null,
+      "command": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "C:\\Users\\APP MOVILES\\Documents\\react-native\\Poliperrodex\\.agents\\skills\\archify\\bin\\archify.mjs",
+        "deliver",
+        "architecture",
+        "C:\\Users\\APP MOVILES\\Documents\\react-native\\Poliperrodex\\.archify\\architecture-poliperrodex-runtime-20261111-1605\\candidate.json",
+        "C:\\Users\\APP MOVILES\\Documents\\react-native\\Poliperrodex\\.archify\\architecture-poliperrodex-runtime-20261111-1605\\poliperrodex-runtime.html",
+        "--quality",
+        "showcase",
+        "--json"
+      ],
+      "receipt": {
+        "schemaVersion": 1,
+        "ok": false,
+        "command": "deliver",
+        "receiptId": "d254039f-44ce-4f66-99df-0eebc91bf00d",
+        "stage": "render",
+        "type": "architecture",
+        "input": "C:\\Users\\APP MOVILES\\Documents\\react-native\\Poliperrodex\\.archify\\architecture-poliperrodex-runtime-20261111-1605\\candidate.json",
+        "output": "C:\\Users\\APP MOVILES\\Documents\\react-native\\Poliperrodex\\.archify\\architecture-poliperrodex-runtime-20261111-1605\\poliperrodex-runtime.html",
+        "error": "Architecture layout validation failed:\n- Connection \"perros\" is too short (10px; minimum 24px) — place its components farther apart.\n- Label \"perros\" has only 10px between \"pokedex\" and \"repositories\"; it needs at least 55px to stay beside its route — increase that clear gap or place the connected nodes on another readable row, preserving the label.",
+        "diagnostics": [
+          {
+            "code": "layout/constraint",
+            "severity": "error",
+            "message": "Connection \"perros\" is too short (10px; minimum 24px) — place its components farther apart.",
+            "subject": {
+              "diagramType": "architecture"
+            },
+            "evidence": {},
+            "supportedFixes": []
+          },
+          {
+            "code": "composition/label-gap",
+            "severity": "error",
+            "message": "Label \"perros\" has only 10px between \"pokedex\" and \"repositories\"; it needs at least 55px to stay beside its route — increase that clear gap or place the connected nodes on another readable row, preserving the label.",
+            "subject": {
+              "diagramType": "architecture",
+              "collection": "connections",
+              "id": "pokedex-data",
+              "from": "pokedex",
+              "to": "repositories"
+            },
+            "evidence": {
+              "clearGapPx": 10,
+              "minimumGapPx": 55,
+              "labelWidthPx": 38.8,
+              "obstacles": [
+                "pokedex",
+                "repositories"
+              ]
+            },
+            "supportedFixes": [
+              "increase the clear gap between the connected nodes to at least 55px",
+              "reposition the connected nodes together while preserving the full relationship label"
+            ]
+          }
+        ],
+        "provenance": "failed",
+        "update": {
+          "status": "unavailable",
+          "installedVersion": null,
+          "availableVersion": null,
+          "releaseNotes": null,
+          "checkedAt": null,
+          "source": null,
+          "noticeRequired": false,
+          "noticeText": null,
+          "reason": "disabled"
+        }
+      },
+      "execution": "embedded-in-deliver"
+    },
+    "deliver": {
+      "status": "not-run",
+      "execution": "blocked-by-validate"
+    }
+  },
+  "browserCheck": {
+    "requested": true,
+    "ran": false
+  },
+  "diagnostics": [
+    {
+      "code": "layout/constraint",
+      "severity": "error",
+      "message": "Connection \"perros\" is too short (10px; minimum 24px) — place its components farther apart.",
+      "subject": {
+        "diagramType": "architecture"
+      },
+      "evidence": {},
+      "supportedFixes": []
+    },
+    {
+      "code": "composition/label-gap",
+      "severity": "error",
+      "message": "Label \"perros\" has only 10px between \"pokedex\" and \"repositories\"; it needs at least 55px to stay beside its route — increase that clear gap or place the connected nodes on another readable row, preserving the label.",
+      "subject": {
+        "diagramType": "architecture",
+        "collection": "connections",
+        "id": "pokedex-data",
+        "from": "pokedex",
+        "to": "repositories"
+      },
+      "evidence": {
+        "clearGapPx": 10,
+        "minimumGapPx": 55,
+        "labelWidthPx": 38.8,
+        "obstacles": [
+          "pokedex",
+          "repositories"
+        ]
+      },
+      "supportedFixes": [
+        "increase the clear gap between the connected nodes to at least 55px",
+        "reposition the connected nodes together while preserving the full relationship label"
+      ]
+    }
+  ],
+  "evidence": {
+    "receipt": "C:\\Users\\APP MOVILES\\Documents\\react-native\\Poliperrodex\\.archify\\architecture-poliperrodex-runtime-20261111-1605\\review-2\\poliperrodex-runtime.finalize.json",
+    "summaryReceipt": "C:\\Users\\APP MOVILES\\Documents\\react-native\\Poliperrodex\\.archify\\architecture-poliperrodex-runtime-20261111-1605\\review-2\\poliperrodex-runtime.finalize-summary.json"
+  },
+  "visualReview": "not-requested",
+  "failedStage": "validate",
+  "finishedAt": "2026-11-11T21:19:45.920Z",
+  "durationMs": 1425,
+  "update": {
+    "status": "current",
+    "installedVersion": "3.2.0",
+    "availableVersion": "3.2.0",
+    "releaseNotes": null,
+    "checkedAt": "2026-11-11T21:11:24.194Z",
+    "source": "cache",
+    "noticeRequired": false,
+    "noticeText": null
+  }
+}

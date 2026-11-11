@@ -14,16 +14,22 @@ import { usePokedexViewModel } from './use-pokedex-view-model';
 // condicional: primero vemos si hay apodo y solo entonces creamos el
 // ViewModel, que necesita ese apodo para consultar.
 export function PokedexScreen() {
-  const { apodo, listo } = useApodo();
+  const { apodo, entrenadorId, listo } = useApodo();
  
   if (!listo) return <Estado cargando />;
-  if (!apodo) return <FormularioApodo />;
-  return <ListaPokedex apodo={apodo} />;
+  if (!apodo || !entrenadorId) return <FormularioApodo />;
+  return <ListaPokedex apodo={apodo} entrenadorId={entrenadorId} />;
 }
  
-function ListaPokedex({ apodo }: { apodo: string }) {
-  const { olvidarApodo } = useApodo();
-  const vm = usePokedexViewModel(apodo);
+function ListaPokedex({
+  apodo,
+  entrenadorId,
+}: {
+  apodo: string;
+  entrenadorId: string;
+}) {
+  const { correo, cerrarSesion, autenticando, errorAutenticacion } = useApodo();
+  const vm = usePokedexViewModel(entrenadorId);
  
   if (vm.cargando || (vm.error && vm.perros.length === 0)) {
     return (
@@ -40,10 +46,17 @@ function ListaPokedex({ apodo }: { apodo: string }) {
       ListHeaderComponent={
         <View style={estilos.cabecera}>
           <Texto variante="nota">Entrenador: {apodo}</Texto>
+          {correo && <Texto variante="nota">Cuenta Google: {correo}</Texto>}
           <Texto variante="subtitulo">{vm.resumen}</Texto>
-          <Pressable onPress={olvidarApodo} hitSlop={8}>
+          {errorAutenticacion && (
+            <Texto style={{ color: colores.alerta }}>{errorAutenticacion}</Texto>
+          )}
+          <Pressable
+            onPress={() => void cerrarSesion()}
+            disabled={autenticando}
+            hitSlop={8}>
             <Texto variante="nota" style={estilos.enlace}>
-              Cambiar apodo
+              Cerrar sesión
             </Texto>
           </Pressable>
         </View>
