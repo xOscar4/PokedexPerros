@@ -1,0 +1,361 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Arquitectura de ejecución de Poliperrodex",
+    "locale": "es",
+    "output": ".archify/architecture-poliperrodex-runtime-20261111-1605/poliperrodex-runtime.html",
+    "quality_profile": "showcase"
+  },
+  "components": [
+    {
+      "id": "person",
+      "type": "external",
+      "label": "Persona usuaria",
+      "sublabel": "Android / iOS",
+      "pos": [
+        30,
+        355
+      ],
+      "size": [
+        110,
+        64
+      ]
+    },
+    {
+      "id": "app-shell",
+      "type": "frontend",
+      "label": "App root",
+      "sublabel": "ApodoProvider + Stack",
+      "pos": [
+        190,
+        355
+      ],
+      "size": [
+        150,
+        84
+      ]
+    },
+    {
+      "id": "tabs",
+      "type": "frontend",
+      "label": "Navegación por pestañas",
+      "sublabel": "Pokédex · Capturar · Mapa",
+      "pos": [
+        415,
+        355
+      ],
+      "size": [
+        165,
+        80
+      ]
+    },
+    {
+      "id": "pokedex",
+      "type": "frontend",
+      "label": "Pokédex + ViewModel",
+      "sublabel": "Perros y capturas del apodo",
+      "pos": [
+        645,
+        165
+      ],
+      "size": [
+        175,
+        80
+      ]
+    },
+    {
+      "id": "capture",
+      "type": "frontend",
+      "label": "Captura + ViewModel",
+      "sublabel": "Cámara, ubicación y registro",
+      "pos": [
+        645,
+        345
+      ],
+      "size": [
+        175,
+        85
+      ]
+    },
+    {
+      "id": "map",
+      "type": "frontend",
+      "label": "Mapa + ViewModel",
+      "sublabel": "Avistamientos en WebView",
+      "pos": [
+        645,
+        525
+      ],
+      "size": [
+        175,
+        80
+      ]
+    },
+    {
+      "id": "profile",
+      "type": "frontend",
+      "label": "Perfil del perro + ViewModel",
+      "sublabel": "Stack route perro/[id]",
+      "pos": [
+        645,
+        705
+      ],
+      "size": [
+        175,
+        85
+      ]
+    },
+    {
+      "id": "extra-route",
+      "type": "frontend",
+      "label": "Ruta adicional /(tabs)/[id]",
+      "sublabel": "No listada como Tabs.Screen",
+      "pos": [
+        415,
+        690
+      ],
+      "size": [
+        175,
+        75
+      ]
+    },
+    {
+      "id": "repositories",
+      "type": "backend",
+      "label": "Repositorios de datos",
+      "sublabel": "Perros + avistamientos",
+      "pos": [
+        870,
+        350
+      ],
+      "size": [
+        170,
+        90
+      ]
+    },
+    {
+      "id": "trainer-repository",
+      "type": "backend",
+      "label": "EntrenadorRepository",
+      "sublabel": "Persistencia del apodo",
+      "pos": [
+        645,
+        65
+      ],
+      "size": [
+        175,
+        75
+      ]
+    },
+    {
+      "id": "local-files",
+      "type": "database",
+      "label": "Archivos locales",
+      "sublabel": "apodo.txt · Documents",
+      "pos": [
+        870,
+        65
+      ],
+      "size": [
+        155,
+        75
+      ]
+    },
+    {
+      "id": "device-apis",
+      "type": "external",
+      "label": "APIs del dispositivo",
+      "sublabel": "Cámara · GPS · acelerómetro",
+      "pos": [
+        870,
+        565
+      ],
+      "size": [
+        175,
+        85
+      ]
+    },
+    {
+      "id": "supabase",
+      "type": "cloud",
+      "label": "Supabase",
+      "sublabel": "Postgres + Storage",
+      "pos": [
+        1085,
+        350
+      ],
+      "size": [
+        145,
+        80
+      ]
+    },
+    {
+      "id": "map-provider",
+      "type": "cloud",
+      "label": "Leaflet + OpenStreetMap",
+      "sublabel": "CDN y teselas",
+      "pos": [
+        1085,
+        570
+      ],
+      "size": [
+        145,
+        80
+      ]
+    }
+  ],
+  "connections": [
+    {
+      "id": "user-launch",
+      "from": "person",
+      "to": "app-shell",
+      "label": "abre la app",
+      "variant": "emphasis"
+    },
+    {
+      "id": "root-to-tabs",
+      "from": "app-shell",
+      "to": "tabs",
+      "label": "Stack: (tabs)"
+    },
+    {
+      "id": "root-to-profile",
+      "from": "app-shell",
+      "to": "profile",
+      "label": "Stack: perro/[id]"
+    },
+    {
+      "id": "tabs-pokedex",
+      "from": "tabs",
+      "to": "pokedex",
+      "label": "index"
+    },
+    {
+      "id": "tabs-capture",
+      "from": "tabs",
+      "to": "capture",
+      "label": "capturar"
+    },
+    {
+      "id": "tabs-map",
+      "from": "tabs",
+      "to": "map",
+      "label": "mapa"
+    },
+    {
+      "id": "tabs-extra-route",
+      "from": "tabs",
+      "to": "extra-route",
+      "label": "archivo dinámico no listado",
+      "variant": "dashed"
+    },
+    {
+      "id": "pokedex-profile",
+      "from": "pokedex",
+      "to": "profile",
+      "label": "abre perro por ID"
+    },
+    {
+      "id": "capture-profile",
+      "from": "capture",
+      "to": "profile",
+      "label": "al terminar captura"
+    },
+    {
+      "id": "pokedex-data",
+      "from": "pokedex",
+      "to": "repositories",
+      "label": "perros + capturas"
+    },
+    {
+      "id": "capture-data",
+      "from": "capture",
+      "to": "repositories",
+      "label": "lista / registra"
+    },
+    {
+      "id": "map-data",
+      "from": "map",
+      "to": "repositories",
+      "label": "lista avistamientos"
+    },
+    {
+      "id": "profile-data",
+      "from": "profile",
+      "to": "repositories",
+      "label": "perro + avistamientos"
+    },
+    {
+      "id": "data-supabase",
+      "from": "repositories",
+      "to": "supabase",
+      "label": "consultas + carga de fotos",
+      "variant": "emphasis"
+    },
+    {
+      "id": "root-trainer",
+      "from": "app-shell",
+      "to": "trainer-repository",
+      "label": "lee / guarda apodo"
+    },
+    {
+      "id": "trainer-local",
+      "from": "trainer-repository",
+      "to": "local-files",
+      "label": "lee / escribe"
+    },
+    {
+      "id": "capture-device",
+      "from": "capture",
+      "to": "device-apis",
+      "label": "cámara, GPS, caída"
+    },
+    {
+      "id": "data-photo-file",
+      "from": "repositories",
+      "to": "local-files",
+      "label": "lee bytes de la foto"
+    },
+    {
+      "id": "map-tiles",
+      "from": "map",
+      "to": "map-provider",
+      "label": "WebView carga CDN y teselas"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "slate",
+      "title": "Evidencia revisada en el workspace",
+      "items": [
+        "Rutas: src/app/_layout.tsx:9-27; src/app/(tabs)/_layout.tsx:19-48; src/app/perro/[id].tsx:1",
+        "Apodo local: src/ui/core/apodo-view-model.tsx:19-44; src/data/repositories/entrenador-repository.ts:5-19",
+        "Pok?dex: src/ui/pokedex/pokedex-screen.tsx:16-26; src/ui/pokedex/use-pokedex-view-model.ts:10-25",
+        "Captura: src/ui/captura/captura-screen.tsx:22-42,70-74; src/ui/captura/use-captura-view-model.ts:17-70",
+        "Mapa: src/ui/mapa/mapa-screen.tsx:13-30; src/ui/mapa/use-mapa-view-model.ts:17-28; src/ui/mapa/plantilla-leaflet.ts:21-44",
+        "Perfil: src/app/perro/[id].tsx:1; src/ui/perfil-perro/perfil-perro-screen.tsx:14-30; src/ui/perfil-perro/use-perfil-perro-view-model.ts:8-21",
+        "Datos: src/data/repositories/perros-repository.ts:29-48; src/data/repositories/avistamientos-repository.ts:48-96; src/data/services/supabase-service.ts:7-19",
+        "Dispositivo: src/ui/captura/captura-screen.tsx:35-36,70-74; src/data/services/ubicacion-service.ts:4-13; src/data/services/acelerometro-service.ts:11-30",
+        "Ruta adicional: src/app/(tabs)/[id].tsx:1; src/app/(tabs)/_layout.tsx:30-48"
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Captura",
+      "items": [
+        "El ViewModel orquesta foto, ubicación y registro.",
+        "Una caída detectada puede cancelar la captura activa.",
+        "La foto se sube a Storage antes de insertar el avistamiento."
+      ]
+    },
+    {
+      "dot": "rose",
+      "title": "Ruta adicional",
+      "items": [
+        "Existe src/app/(tabs)/[id].tsx, pero el layout de pestañas no la declara en sus Tabs.Screen.",
+        "El diagrama la marca separada del flujo principal."
+      ]
+    }
+  ]
+}

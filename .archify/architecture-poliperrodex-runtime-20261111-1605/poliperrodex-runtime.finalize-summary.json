@@ -1,0 +1,128 @@
+{
+  "schemaVersion": 1,
+  "ok": false,
+  "command": "finalize",
+  "status": "fail",
+  "type": "architecture",
+  "quality": "showcase",
+  "specification": {
+    "path": "C:\\Users\\APP MOVILES\\Documents\\react-native\\Poliperrodex\\.archify\\architecture-poliperrodex-runtime-20261111-1605\\candidate.json",
+    "sha256": "6f09482b98940dd1ba4ea33afa8ce8e3efa29b91a0ea6243c099cb22a9074fec",
+    "bytes": 8056
+  },
+  "artifact": {
+    "path": "C:\\Users\\APP MOVILES\\Documents\\react-native\\Poliperrodex\\.archify\\architecture-poliperrodex-runtime-20261111-1605\\poliperrodex-runtime.html"
+  },
+  "gates": {
+    "validate": "fail",
+    "deliver": "not-run",
+    "check": "not-run",
+    "browser-check": "not-run"
+  },
+  "failedStage": "validate",
+  "diagnostics": [
+    {
+      "code": "composition/label-route-clearance",
+      "severity": "error",
+      "message": "[composition/label-route-clearance] showcase architecture label \"capturar\" on connections[4] id \"tabs-capture\" \"tabs\" -> \"capture\" label \"capturar\" is 0px from connections[7] id \"pokedex-profile\" \"pokedex\" -> \"profile\" label \"abre perro por ID\" segment 2 [633.7, 342] -> [633.7, 673] (label rect [588, 375, 48, 14]; minimum 4px) — adjust labelAt, labelDx, labelDy, or labelSegment; otherwise adjust the other relationship route/via/channel.",
+      "subject": {
+        "diagramType": "architecture",
+        "collection": "connections",
+        "index": 4,
+        "id": "tabs-capture",
+        "from": "tabs",
+        "to": "capture"
+      },
+      "evidence": {
+        "label": "capturar",
+        "otherRelationship": {
+          "diagramType": "architecture",
+          "collection": "connections",
+          "index": 7,
+          "id": "pokedex-profile",
+          "from": "pokedex",
+          "to": "profile"
+        },
+        "segmentIndex": 2,
+        "clearancePx": 0,
+        "minimumPx": 4,
+        "labelRect": {
+          "relation": {
+            "id": "tabs-capture",
+            "from": "tabs",
+            "to": "capture",
+            "label": "capturar"
+          },
+          "relationIndex": 4,
+          "label": "capturar",
+          "x": 588.3,
+          "y": 375,
+          "width": 48.4,
+          "height": 14,
+          "lx": 612.5,
+          "ly": 385
+        },
+        "from": [
+          633.6999999999999,
+          342
+        ],
+        "to": [
+          633.6999999999999,
+          673
+        ]
+      },
+      "supportedFixes": [
+        "adjust labelAt, labelDx, labelDy, or labelSegment; otherwise adjust the other relationship route/via/channel"
+      ]
+    },
+    {
+      "code": "architecture/component-label-overflow",
+      "severity": "error",
+      "message": "Label \"Perfil del perro + ViewModel\" (~185px) is wider than component \"profile\" (175px) — shorten the label or widen size.",
+      "subject": {
+        "diagramType": "architecture",
+        "nodeId": "profile"
+      },
+      "evidence": {
+        "text": "Perfil del perro + ViewModel",
+        "estimatedWidthPx": 185,
+        "availableWidthPx": 175
+      },
+      "supportedFixes": [
+        "shorten component \"profile\" label \"Perfil del perro + ViewModel\" while preserving its meaning",
+        "or widen component \"profile\" to at least 177px"
+      ]
+    }
+  ],
+  "diagnosticSummary": {
+    "total": 2,
+    "shown": 2,
+    "truncated": false
+  },
+  "evidence": {
+    "receipt": "C:\\Users\\APP MOVILES\\Documents\\react-native\\Poliperrodex\\.archify\\architecture-poliperrodex-runtime-20261111-1605\\poliperrodex-runtime.finalize.json",
+    "summaryReceipt": "C:\\Users\\APP MOVILES\\Documents\\react-native\\Poliperrodex\\.archify\\architecture-poliperrodex-runtime-20261111-1605\\poliperrodex-runtime.finalize-summary.json"
+  },
+  "update": {
+    "status": "current",
+    "installedVersion": "3.2.0",
+    "availableVersion": "3.2.0",
+    "releaseNotes": null,
+    "checkedAt": "2026-11-11T21:11:24.194Z",
+    "source": "cache",
+    "noticeRequired": false,
+    "noticeText": null
+  },
+  "visualReview": "not-requested",
+  "durationMs": 1425,
+  "browserCheck": {
+    "requested": true,
+    "ran": false
+  },
+  "nextAction": {
+    "action": "edit-in-place",
+    "candidate": "C:\\Users\\APP MOVILES\\Documents\\react-native\\Poliperrodex\\.archify\\architecture-poliperrodex-runtime-20261111-1605\\candidate.json",
+    "constraint": "Preserve unaffected semantics and geometry; apply each diagnostic's supportedFixes, or the fix its message names, and do not replace the whole candidate.",
+    "then": "finalize-once"
+  }
+}
